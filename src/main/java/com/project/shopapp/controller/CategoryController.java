@@ -56,6 +56,7 @@ public class CategoryController {
         return ResponseEntity.ok(categories);
     }
 
+    // Sửa categories theo id
     @PutMapping("/{id}")
     public ResponseEntity<UpdateCategoryResponse> updateCategory(
             @PathVariable Long id,
@@ -66,6 +67,8 @@ public class CategoryController {
         updateCategoryResponse.setMessage(localizationUtils.getLocalizedMessage(MessageKeys.UPDATE_CATEGORY_SUCCESSFULLY));
         return ResponseEntity.ok(updateCategoryResponse);
     }
+
+    // Xóa categories theo id
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteCategory(@PathVariable Long id) {
         categoryService.deleteCategory(id);
